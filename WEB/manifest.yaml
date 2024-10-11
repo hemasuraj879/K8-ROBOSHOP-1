@@ -129,7 +129,7 @@ spec:
             path: nginx.conf
       containers:
       - name: catalogue
-        image: surajki879/web:1.7
+        image: surajk879/web:1.7
         imagePullPolicy: Always
         volumeMounts:
         - name: nginx-conf # name of the volume you created above
@@ -153,4 +153,3 @@ spec:
     protocol: TCP
     port: 80 # this port belongs to service
     targetPort: 80 # this port belongs to container
-
