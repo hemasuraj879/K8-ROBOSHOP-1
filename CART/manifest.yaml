@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart
+  namespace: roboshop
+  labels:
+    tier: app
+    env: dev
+    project: roboshop
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: app
+      env: dev
+      project: roboshop
+
+
+  template:
+    metadata:
+      labels:
+        tier: app
+        env: dev
+        project: roboshop
+
+    spec:
+      containers:
+      - name: cart
+        image: surajk879/cart:1.7
+        envFrom:
+        - configMapRef:
+            name: cart
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart
+  namespace: roboshop
+  
+spec:
+  selector:
+    tier: app
+    env: dev
+    project: roboshop
+
+  ports:
+  - name: cart
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cart
+  namespace: roboshop
+
+data:
+  REDIS_HOST: "redis"
+  CATALOGUE_HOST: "catalogue"
+  CATALOGUE_PORT: "8080"
