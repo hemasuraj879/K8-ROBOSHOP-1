@@ -11,9 +11,10 @@ metadata:
 spec:
   replicas: 1
   selector:
-    env: dev
-    tier: db
-    project: roboshop
+  matchLabels:
+      env: dev
+      tier: db
+      project: roboshop
 
   template:
     metadata:
