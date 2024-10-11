@@ -26,7 +26,8 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: surajk879/mongodb:1.5
+        image: surajk879/mongodb:1.7
+        imagePullPolicy: Always
 
 ---
 
