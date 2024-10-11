@@ -18,9 +18,10 @@ spec:
 
   template:
     metadata:
-      env: dev
-      tier: db
-      project: roboshop
+      labels:
+        env: dev
+        tier: db
+        project: roboshop
 
     spec:
       containers:
