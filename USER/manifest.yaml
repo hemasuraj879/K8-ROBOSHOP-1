@@ -28,7 +28,7 @@ spec:
       - name: user
         image: surajk879/user:1.7
         envFrom:
-        - ConfigMapRef:
+        - configMapRef:
             name: user
 
 ---
