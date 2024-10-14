@@ -16,20 +16,20 @@ spec:
       env: dev
       project: roboshop
 
-    template:
-      metadata:
-        labels:
-          tier: app
-          env: dev
-          project: roboshop
+  template:
+    metadata:
+      labels:
+        tier: app
+        env: dev
+        project: roboshop
 
-      spec:
-        containers:
-        - name: shipping
-          image: surajk879/shipping:1.7
-          envFrom:
-          - configMapRef:
-              name: mysql
+    spec:
+      containers:
+      - name: shipping
+        image: surajk879/shipping:1.7
+        envFrom:
+        - configMapRef:
+            name: mysql
 
 ---
 
