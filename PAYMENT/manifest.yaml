@@ -24,19 +24,12 @@ spec:
         project: roboshop
 
     spec:
-      metadata:
-        labels:
-          tier: app
-          env: dev
-          project: roboshop
-
-      spec:
-        containers:
-        - name: payment
-          image: surajk879/payment:1.7
-          envFrom:
-          - configMapRef:
-              name: payment
+      containers:
+      - name: payment
+        image: surajk879/payment:1.7
+        envFrom:
+        - configMapRef:
+            name: payment
 
 ---
 
